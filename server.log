@@ -53,3 +53,41 @@ Email stored in Supabase: test_1757605808@example.com at 2025-09-11T15:50:08.447
 Email address stored in Supabase: test_1757605808@example.com
  POST /api/send-email 200 in 173ms
  GET /api/send-email?key=your-secure-admin-key-here 401 in 9ms
+ ✓ Compiled in 406ms (141 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (108kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ ○ Compiling / ...
+ ✓ Compiled / in 4.1s (824 modules)
+ GET / 200 in 4416ms
+ ✓ Compiled /api/send-email in 225ms (466 modules)
+Email stored in Supabase: support@ferearea.com at 2025-09-11T15:59:34.757Z
+Email address stored in Supabase: support@ferearea.com
+ POST /api/send-email 200 in 679ms
+   Reload env: .env.local
+ ✓ Compiled in 1119ms (965 modules)
+ GET / 200 in 484ms
+ ○ Compiling /admin/login ...
+ ✓ Compiled /admin/login in 624ms (818 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /admin/login 200 in 941ms
+ ✓ Compiled /api/admin/login in 256ms (470 modules)
+ POST /api/admin/login 401 in 348ms
+ POST /api/admin/login 401 in 17ms
+   Reload env: .env.local
+ ✓ Compiled in 421ms (987 modules)
+ ✓ Compiled /_not-found in 367ms (849 modules)
+ POST /api/admin/login 404 in 583ms
+ GET /admin/login 404 in 45ms
+ GET /_next/static/css/app/layout.css?v=1757608416812 404 in 59ms
+ GET /_next/static/chunks/app/layout.js 404 in 67ms
+ GET /_next/static/chunks/main-app.js?v=1757608416812 404 in 64ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 63ms
+ GET /admin/login 404 in 44ms
+ GET /_next/static/css/app/layout.css?v=1757608418774 404 in 50ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 65ms
+ GET /_next/static/chunks/main-app.js?v=1757608418774 404 in 65ms
+ GET /_next/static/chunks/app/layout.js 404 in 64ms
+ GET /admin/login 404 in 15ms
+ GET /_next/static/css/app/layout.css?v=1757608420438 404 in 26ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 32ms
+ GET /_next/static/chunks/app/layout.js 404 in 33ms
+ GET /_next/static/chunks/main-app.js?v=1757608420438 404 in 33ms
