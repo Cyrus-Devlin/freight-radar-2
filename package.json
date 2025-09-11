@@ -1,0 +1,61 @@
+{
+  "name": "freight-radar",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "setup-db": "node scripts/setup-supabase.js",
+    "create-table": "node scripts/create-supabase-table.js",
+    "test-db": "curl -X GET http://localhost:3000/api/test-supabase?key=$ADMIN_ACCESS_KEY"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "private": "true",
+  "engines": {
+    "node": ">=18.18"
+  },
+  "browserslist": {
+    "production": "defaults",
+    "development": "last 1 chrome version, last 1 firefox version, last 1 safari version"
+  },
+  "sideEffects": "false",
+  "eslintConfig": {
+    "extends": "next/core-web-vitals"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.13",
+    "@types/node": "^24.3.1",
+    "@types/react": "19.1.12",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.35.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.13",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.2.7",
+    "@heroicons/react": "^2.2.0",
+    "@radix-ui/react-avatar": "^1.1.10",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@sendgrid/mail": "^8.1.5",
+    "@supabase/ssr": "^0.7.0",
+    "@supabase/supabase-js": "^2.57.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "dotenv": "^17.2.2",
+    "lucide-react": "^0.543.0",
+    "maplibre-gl": "^5.7.1",
+    "next": "^14.2.32",
+    "node-fetch": "^3.3.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^3.3.1"
+  }
+}

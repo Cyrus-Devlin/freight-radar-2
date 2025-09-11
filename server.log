@@ -1,0 +1,55 @@
+
+> freight-radar@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.32
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 2.1s
+ ✓ Compiled /middleware in 261ms (141 modules)
+ ○ Compiling /api/send-email ...
+ ✓ Compiled /api/send-email in 715ms (128 modules)
+Error inserting email submission: {
+  code: '23505',
+  details: 'Key (email)=(test@example.com) already exists.',
+  hint: null,
+  message: 'duplicate key value violates unique constraint "email_submissions_email_key"'
+}
+Failed to store email in Supabase: {
+  code: '23505',
+  details: 'Key (email)=(test@example.com) already exists.',
+  hint: null,
+  message: 'duplicate key value violates unique constraint "email_submissions_email_key"'
+}
+Error storing email: {
+  code: '23505',
+  details: 'Key (email)=(test@example.com) already exists.',
+  hint: null,
+  message: 'duplicate key value violates unique constraint "email_submissions_email_key"'
+}
+ POST /api/send-email 500 in 1102ms
+Error inserting email submission: {
+  code: '23505',
+  details: 'Key (email)=(test@example.com) already exists.',
+  hint: null,
+  message: 'duplicate key value violates unique constraint "email_submissions_email_key"'
+}
+Failed to store email in Supabase: {
+  code: '23505',
+  details: 'Key (email)=(test@example.com) already exists.',
+  hint: null,
+  message: 'duplicate key value violates unique constraint "email_submissions_email_key"'
+}
+Error storing email: {
+  code: '23505',
+  details: 'Key (email)=(test@example.com) already exists.',
+  hint: null,
+  message: 'duplicate key value violates unique constraint "email_submissions_email_key"'
+}
+ POST /api/send-email 500 in 148ms
+Email stored in Supabase: test_1757605808@example.com at 2025-09-11T15:50:08.447Z
+Email address stored in Supabase: test_1757605808@example.com
+ POST /api/send-email 200 in 173ms
+ GET /api/send-email?key=your-secure-admin-key-here 401 in 9ms

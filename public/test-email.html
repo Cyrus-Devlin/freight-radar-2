@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Test Suite</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      border-bottom: 2px solid #0070f3;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .test-section {
+      margin-bottom: 30px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    button {
+      padding: 10px;
+      background-color: #0070f3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #0051a8;
+    }
+    input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .result {
+      margin-top: 15px;
+      padding: 15px;
+      border-radius: 5px;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    .info {
+      background-color: #e2f0fb;
+      color: #0c5460;
+      border: 1px solid #bee5eb;
+    }
+    .debug-box {
+      font-family: monospace;
+      font-size: 12px;
+      padding: 10px;
+      background-color: #f8f9fa;
+      border: 1px solid #eee;
+      max-height: 200px;
+      overflow: auto;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>API Test Suite</h1>
+  
+  <div class="test-section">
+    <h2>Test 1: Basic API Functionality</h2>
+    <p>This tests if the basic API routes are working correctly.</p>
+    <button id="testApiButton">Test Basic API</button>
+    <div id="apiResult" class="result" style="display: none;"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>Test 2: Email Submission</h2>
+    <p>This tests if the email sending functionality is working correctly.</p>
+    <form id="emailForm">
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" value="test@example.com" required>
+      <button type="submit">Send Test Email</button>
+    </form>
+    <div id="emailResult" class="result" style="display: none;"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>Debug Information</h2>
+    <p>The following information may help with debugging:</p>
+    <div class="debug-box" id="debugInfo">
+      Collecting environment information...
+    </div>
+  </div>
+
+  <script>
+    // Test the basic API endpoint
+    document.getElementById('testApiButton').addEventListener('click', async () => {
+      const resultDiv = document.getElementById('apiResult');
+      
+      resultDiv.className = 'result info';
+      resultDiv.textContent = 'Testing basic API endpoint...';
+      resultDiv.style.display = 'block';
+      
+      try {
+        // First, test with GET
+        const getResponse = await fetch('/api/test');
+        const getData = await getResponse.json();
+        
+        // Then, test with POST
+        const postResponse = await fetch('/api/test', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ test: 'data' }),
+        });
+        const postData = await postResponse.json();
+        
+        if (getResponse.ok && postResponse.ok) {
+          resultDiv.className = 'result success';
+          resultDiv.textContent = '✅ Basic API is working correctly!\n\nGET Response:\n' + 
+            JSON.stringify(getData, null, 2) + '\n\nPOST Response:\n' + 
+            JSON.stringify(postData, null, 2);
+        } else {
+          resultDiv.className = 'result error';
+          resultDiv.textContent = '❌ Basic API test failed. Check server logs.';
+        }
+      } catch (error) {
+        resultDiv.className = 'result error';
+        resultDiv.textContent = `❌ Error testing basic API: ${error.message}\n\nThis may indicate a server issue or that the API routes aren't working properly.`;
+      }
+    });
+
+    // Test the email submission
+    document.getElementById('emailForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      const resultDiv = document.getElementById('emailResult');
+      
+      resultDiv.className = 'result info';
+      resultDiv.textContent = 'Sending email...';
+      resultDiv.style.display = 'block';
+      
+      try {
+        const startTime = new Date().getTime();
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email }),
+        });
+
+        const data = await response.json();
+        const endTime = new Date().getTime();
+        const responseTime = endTime - startTime;
+        
+        let resultText = '';
+        
+        if (response.ok) {
+          resultDiv.className = 'result success';
+          resultText = `✅ Email sent successfully! (${responseTime}ms)\n\nServer response:\n${JSON.stringify(data, null, 2)}\n\nCheck your inbox at cyrus@myfreightradar.com`;
+        } else {
+          resultDiv.className = 'result error';
+          resultText = `❌ Email sending failed (${responseTime}ms)\n\nServer responded with status ${response.status}\n\nError details:\n${JSON.stringify(data, null, 2)}`;
+        }
+        
+        resultDiv.textContent = resultText;
+      } catch (error) {
+        resultDiv.className = 'result error';
+        resultDiv.textContent = `❌ Network error: ${error.message}\n\nThis could indicate an issue with your server or API configuration.`;
+      }
+    });
+
+    // Collect debugging information
+    async function collectDebugInfo() {
+      const debugDiv = document.getElementById('debugInfo');
+      
+      const info = {
+        userAgent: navigator.userAgent,
+        timestamp: new Date().toString(),
+        url: window.location.href,
+      };
+      
+      try {
+        const envResponse = await fetch('/api/test');
+        info.apiStatus = envResponse.ok ? 'Working' : 'Not working';
+        info.apiStatusCode = envResponse.status;
+      } catch (error) {
+        info.apiStatus = 'Error';
+        info.apiError = error.message;
+      }
+      
+      debugDiv.textContent = JSON.stringify(info, null, 2);
+    }
+    
+    // Run debug info collection on page load
+    collectDebugInfo();
+
+    // Auto-run the basic API test on page load
+    document.getElementById('testApiButton').click();
+  </script>
+</body>
+</html>
