@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { Footer } from '@/components/footer'
 import { useState } from 'react'
+import ScrollDownCue from '@/components/ui/ScrollDownCue'
 
 export default function Page() {
   const [email, setEmail] = useState('')
@@ -54,6 +55,7 @@ export default function Page() {
           sizes="100vw"
           className="object-cover object-[center_top]"
         />
+        <ScrollDownCue />
       </div>
 
       {/* White Content Section */}
