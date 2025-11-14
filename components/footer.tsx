@@ -10,17 +10,17 @@ export function Footer() {
           {/* Left Section - Logo and Description */}
           <div className="space-y-6">
             <div>
-              <Image
+              <img
                 src="/logo_white.svg"
                 alt="Freight Radar"
-                width={180}
-                height={40}
                 className="h-8 w-auto"
               />
             </div>
             <p className="text-gray-300 text-base leading-relaxed max-w-md">
-              Smart freight tracking and logistics optimisation platform. Real-time visibility 
-              and analytics for your supply chain operations. 
+              A smart platform for freight tracking and logistics optimisation, giving you easy visibility of your imports across every supplier and freight forwarder. 
+            </p>
+              <p className="text-gray-300 text-base leading-relaxed max-w-md">
+              Made with ❤️ in Switzerland. 
             </p>
           </div>
 
