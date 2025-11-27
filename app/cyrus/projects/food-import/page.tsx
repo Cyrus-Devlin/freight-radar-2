@@ -22,7 +22,7 @@ export default function FoodImportPage() {
       </div>
 
       {/* Gallery card — interactive, client-side */}
-      <ProjectGalleryClient images={["/foodimport1.png", "/foodimport2.png", "/foodimport3.png","/Foodimports5.png"]} altPrefix={project.title} />
+      <ProjectGalleryClient images={["/Foodimport1.png", "/foodimport2.png", "/foodimport3.png","/Foodimports5.png"]} altPrefix={project.title} />
 
       <section className="cyrus-section">
         <h2 className="cyrus-section-title">Context</h2>
