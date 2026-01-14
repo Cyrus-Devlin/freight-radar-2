@@ -145,7 +145,7 @@ export default function Page() {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Supports All Major Carriers</h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">We support standard AWBs, BLs, and tracking numbers from all major carriers.</p>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">We support standard BOLs, Container, and tracking numbers from all major carriers.</p>
                 </div>
               </div>
             </div>
