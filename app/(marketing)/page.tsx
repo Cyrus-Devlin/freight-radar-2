@@ -52,7 +52,8 @@ export default function Page() {
           alt="Aerial view of container cargo ship at sea showing global freight transportation"
           fill
           priority
-          sizes="100vw"
+          sizes="(max-width: 768px) 100vw, 1920px"
+          quality={90}
           className="object-cover object-[center_top]"
         />
         <ScrollDownCue />
@@ -70,11 +71,11 @@ export default function Page() {
         
             {/* Test with aerial-view image that we know works in the hero section */}
             <img
-              src="/freight-dashboard.png"
+              src="/FreightRadarHero2.jpg"
               alt="Unified shipment dashboard visualization"
-              className="mx-auto rounded-xl shadow-lg mb-8"
-              width={600}
-              height={600}
+              className="mx-auto rounded-xl shadow-lg mb-8 w-full md:w-[90%] lg:w-[85%]"
+              width={1200}
+              height={700}
             />
 
         </div>
@@ -184,15 +185,6 @@ export default function Page() {
       {/* Pricing Section */}
       <section className="bg-gray-50 pt-24 pb-8 !mb-0">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Simple, Transparent Pricing
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Start with a trial and scale as you grow. Cancel anytime, with no long-term commitment or annual contracts.
-            </p>
-          </div>
-          
           <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Basic Plan */}
             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
@@ -200,11 +192,11 @@ export default function Page() {
                 <h3 className="text-xl font-bold text-gray-900 mb-1">Basic</h3>
                 <p className="text-gray-600 text-sm mb-4">Perfect for SME's</p>
                 <div className="mb-3">
-                  <span className="text-3xl font-bold text-gray-900">€11</span>
-                  <span className="text-gray-600 text-sm"> trial</span>
+                  <span className="text-3xl font-bold text-gray-900">€99</span>
+                  <span className="text-gray-600 text-sm"> monthly</span>
                 </div>
-                <p className="text-sm text-gray-600 mb-2">31 days trial then €99 monthly</p>
-                <p className="text-sm font-medium text-gray-700">2,000 API calls/month</p>
+                <p className="text-sm text-gray-600 mb-2">Up to 300 containers/week</p>
+                <p className="text-sm font-medium text-gray-700">10,000 API calls/month</p>
               </div>
               
               <ul className="space-y-2">
@@ -258,11 +250,11 @@ export default function Page() {
                 <h3 className="text-xl font-bold text-gray-900 mb-1">Pro</h3>
                 <p className="text-gray-600 text-sm mb-4">For growing businesses</p>
                 <div className="mb-3">
-                  <span className="text-3xl font-bold text-gray-900">€22</span>
-                  <span className="text-gray-600 text-sm"> trial</span>
+                  <span className="text-3xl font-bold text-gray-900">€299</span>
+                  <span className="text-gray-600 text-sm"> monthly</span>
                 </div>
-                <p className="text-sm text-gray-600 mb-2">31 days trial then €299 monthly</p>
-                <p className="text-sm font-medium text-gray-700">5,000 API calls/month</p>
+                <p className="text-sm text-gray-600 mb-2">Up to 1,000 containers/week</p>
+                <p className="text-sm font-medium text-gray-700">30,000 API calls/month</p>
               </div>
               
               <ul className="space-y-2">
@@ -311,11 +303,11 @@ export default function Page() {
                 <h3 className="text-xl font-bold text-gray-900 mb-1">Enterprise</h3>
                 <p className="text-gray-600 text-sm mb-4">For large businesses</p>
                 <div className="mb-3">
-                  <span className="text-3xl font-bold text-gray-900">€39</span>
-                  <span className="text-gray-600 text-sm"> trial</span>
+                  <span className="text-3xl font-bold text-gray-900">€499</span>
+                  <span className="text-gray-600 text-sm"> monthly</span>
                 </div>
-                <p className="text-sm text-gray-600 mb-2">31 days trial then €499 monthly</p>
-                <p className="text-sm font-medium text-gray-700">10,000 API calls/month</p>
+                <p className="text-sm text-gray-600 mb-2">Up to 2,000 containers/week</p>
+                <p className="text-sm font-medium text-gray-700">60,000 API calls/month</p>
               </div>
               
               <ul className="space-y-2">
@@ -353,7 +345,7 @@ export default function Page() {
                   <svg className="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-gray-700 text-sm">Premium Pro Support</span>
+                  <span className="text-gray-700 text-sm">Premium Enterprise Support 7 days a week</span>
                 </li>
               </ul>
             </div>
@@ -364,7 +356,7 @@ export default function Page() {
       {/* Call to Action Section */}
       <section id="cta-section" className="bg-gradient-to-br from-slate-50 to-blue-50 pt-12 pb-32 !mt-0 -mt-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100">
               <div className="text-center">
                 <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6">
