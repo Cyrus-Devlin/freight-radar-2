@@ -71,11 +71,11 @@ export default function Page() {
         
             {/* Test with aerial-view image that we know works in the hero section */}
             <img
-              src="/freight-dashboard.png"
+              src="/FreightRadarHero2.jpg"
               alt="Unified shipment dashboard visualization"
-              className="mx-auto rounded-xl shadow-lg mb-8"
-              width={600}
-              height={600}
+              className="mx-auto rounded-xl shadow-lg mb-8 w-full md:w-[90%] lg:w-[85%]"
+              width={1200}
+              height={700}
             />
 
         </div>
